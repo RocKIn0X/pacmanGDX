@@ -23,6 +23,6 @@ public class PacmanGame extends Game {
 	
 	@Override
 	public void dispose () {
-		batch.dispose();
+            batch.dispose();
 	}
 }
