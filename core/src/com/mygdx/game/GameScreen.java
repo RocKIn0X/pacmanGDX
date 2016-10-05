@@ -46,5 +46,11 @@ public class GameScreen extends ScreenAdapter {
         if(Gdx.input.isKeyPressed(Keys.RIGHT)){
             x += 10;
         }
+        if(Gdx.input.isKeyPressed(Keys.UP)){
+            y += 10;
+        }
+        if(Gdx.input.isKeyPressed(Keys.DOWN)){
+            y -= 10;
+        }
     }
 }
