@@ -17,10 +17,11 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class WorldRenderer {
 
+    public static final int BLOCK_SIZE = 40;
     private PacmanGame pacmanGame;
     private SpriteBatch batch;
     private Texture pacmanImg;
-    private Pacman pacman;
+    private Pacman pacman;  
     
     World world;
     
@@ -28,7 +29,6 @@ public class WorldRenderer {
     
     public WorldRenderer(PacmanGame pacmanGame, World world){
         this.pacmanGame = pacmanGame;
-        batch = pacmanGame.batch;
         
         this.world = world;
           
@@ -41,9 +41,10 @@ public class WorldRenderer {
     public void render(float delta){
         mazeRenderer.render();
         
+        batch = pacmanGame.batch;
         batch.begin();
-        Vector2 pos = pacman.getPosition();
-        batch.draw(pacmanImg, pos.x, pos.y);
+        Vector2 pos = world.getPacman().getPosition();
+        batch.draw(pacmanImg, pos.x - BLOCK_SIZE/2, PacmanGame.HEIGHT - pos.y - BLOCK_SIZE/2);
         batch.end();
     }
 }
